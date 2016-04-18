@@ -35,6 +35,13 @@
 				<ul id="contact-info">
 				</ul>
 				<input type="submit" value="Add Recipe" />
+
+				<c:if var="result" test="${!status}">
+					Error!
+				</c:if>
+
+				<c:if test="${result}">
+
 			</form> 
 		</div>
 		<div id="contact-error" >
