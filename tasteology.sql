@@ -87,8 +87,6 @@ CREATE TABLE tl_recipeingredient (
 CREATE TABLE tl_recipecategory (
 	recipeId INT,
     categoryId INT,
-    quantity DOUBLE NOT NULL,
-    unit VARCHAR(45) NOT NULL,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     status TINYINT(1) DEFAULT 1,
     PRIMARY KEY(recipeId,categoryId),
