@@ -115,7 +115,7 @@ public class RecipeDAO {
 	public static int getIngredientId(String ingredient) {
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT ingredientId FROM tl_ingredient WHERE name = ?";
+		String sql = "SELECT ingredientId FROM tl_ingredient WHERE name = ? AND status = 1";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, ingredient);
@@ -133,7 +133,7 @@ public class RecipeDAO {
 	public static int getRecipeId(String name) {
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT recipeId FROM tl_recipe WHERE name = ?";
+		String sql = "SELECT recipeId FROM tl_recipe WHERE name = ? AND status = 1";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, name);
@@ -151,7 +151,7 @@ public class RecipeDAO {
 	public static int getCategoryId(String category) {
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT categoryId FROM tl_category WHERE name = ?";
+		String sql = "SELECT categoryId FROM tl_category WHERE name = ? AND status = 1";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1,category);
@@ -175,7 +175,7 @@ public class RecipeDAO {
 			case "name":
 				sql = "SELECT recipeId "
 							  +	"FROM tl_recipe R " 
-							  + "WHERE R.name LIKE ? "
+							  + "WHERE R.name LIKE ? AND status = 1 "
 							  + "ORDER by R.name";
 				break;
 			case "ingredient":
@@ -184,14 +184,14 @@ public class RecipeDAO {
 							  + "ON R.recipeId = RI.recipeId "
 							  + "INNER JOIN tl_ingredient I "
 							  + "ON I.ingredientId =  RI.ingredientId "
-							  + "WHERE I.name LIKE ? "
+							  + "WHERE I.name LIKE ? AND status = 1 "
 							  + "ORDER by R.name";
 				break;
 			case "tag":
 				sql = "SELECT R.recipeId "
 							  + "FROM tl_recipe R INNER JOIN tl_tag T "
 							  + "ON R.recipeId = T.recipeId "
-							  + "WHERE T.tag LIKE ? "
+							  + "WHERE T.tag LIKE ? AND status = 1 "
 							  + "ORDER by R.name";
 
 				break;
@@ -199,7 +199,7 @@ public class RecipeDAO {
 				sql = "SELECT R.recipeId "
 							  + "FROM tl_recipe R INNER JOIN tl_category C "
 							  + "ON R.category = C.categoryId "
-							  + "WHERE C.name LIKE ? "
+							  + "WHERE C.name LIKE ? AND status = 1 "
 							  + "ORDER by R.name";
 				break;
 			default: return recipes;
@@ -228,7 +228,7 @@ public class RecipeDAO {
 			String sql = "SELECT R.name, C.name as category " 
 						+ "FROM tl_recipe R INNER JOIN tl_category C "
 						+ " ON R.category = C.categoryId "
-						+ "WHERE recipeId = ?";
+						+ "WHERE recipeId = ? AND status = 1";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setInt(1,id);
 			ResultSet rs = ps.executeQuery();
@@ -237,7 +237,7 @@ public class RecipeDAO {
 				sql = "SELECT name, quantity, unit " 
 						+ "FROM tl_ingredient I INNER JOIN tl_recipeingredient RI" 
 						+ "   ON I.ingredientId = RI.ingredientId "
-						+ "WHERE recipeId = ?";
+						+ "WHERE recipeId = ? AND status = 1";
 				ps = c.prepareStatement(sql);
 				ResultSet rs1 = ps.executeQuery();
 				ArrayList<Ingredient> ings = new ArrayList<Ingredient>();
@@ -250,7 +250,7 @@ public class RecipeDAO {
 				
 				sql = "SELECT tag " 
 						+ "FROM tl_tag"
-						+ "WHERE recipeId = ?";
+						+ "WHERE recipeId = ? AND status = 1";
 				ps = c.prepareStatement(sql);
 				rs1 = ps.executeQuery();
 				ArrayList<String> tags = new ArrayList<String>();

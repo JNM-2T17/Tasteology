@@ -36,7 +36,7 @@ public class UserDAO {
 	public static boolean checkPass(String username, String password) throws Exception{
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT password FROM tl_user WHERE username = ?";
+		String sql = "SELECT password FROM tl_user WHERE username = ? AND status = 1";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, username);
@@ -57,7 +57,7 @@ public class UserDAO {
 	public static String getId(String username) {
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT md5(concat('pink',userId,'flamingos') as userId FROM tl_user WHERE username = ?";
+		String sql = "SELECT md5(concat('pink',userId,'flamingos')) as userId FROM tl_user WHERE username = ? AND status = 1";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, username);
@@ -77,7 +77,7 @@ public class UserDAO {
 	public static boolean verifyId(String id) {
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT userId FROM tl_user WHERE md5('pink',userId,'flamingos') = ?";
+		String sql = "SELECT userId FROM tl_user WHERE md5('pink',userId,'flamingos') = ? AND status = 1";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, id);

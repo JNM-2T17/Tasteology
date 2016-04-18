@@ -51,7 +51,7 @@ public class TheController {
 			e.printStackTrace();
 			request.setAttribute("status",e.getMessage());
 		}
-		request.getRequestDispatcher("WEB-INF/view/addRecipe.jsp").forward(request,response);
+		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request,response);
 	}
 	
 	@RequestMapping("/search")
