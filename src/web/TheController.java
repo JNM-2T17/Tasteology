@@ -34,6 +34,7 @@ public class TheController {
 						,@RequestParam(value="searchStr") String searchStr
 						,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("results", RecipeDAO.getRecipes(param,searchStr));
+		request.getRequestDispatcher("WEB-INF/view/search.jsp").forward(request,response);
 	}
 	
 //	@RequestMapping("/Query")

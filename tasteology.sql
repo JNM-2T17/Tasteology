@@ -12,18 +12,24 @@ CREATE TABLE tl_user (
     status TINYINT(1) DEFAULT 1
 ) engine = innoDB;
 
-CREATE TABLE tl_recipe (
-	recipeId INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(45) NOT NULL,
-    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status TINYINT(1) DEFAULT 1
-) engine = innoDB;
-
 CREATE TABLE tl_category (
 	categoryId INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     status TINYINT(1) DEFAULT 1
+) engine = innoDB;
+
+CREATE TABLE tl_recipe (
+	recipeId INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL,
+    category INT NOT NULL,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status TINYINT(1) DEFAULT 1,
+    CONSTRAINT tl_recipefk_1
+		FOREIGN KEY (category)
+        REFERENCES tl_category(categoryId)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 ) engine = innoDB;
 
 CREATE TABLE tl_ingredient (
@@ -80,24 +86,6 @@ CREATE TABLE tl_recipeingredient (
 	CONSTRAINT tl_recipeingredientfk_2
 		FOREIGN KEY (ingredientId)
         REFERENCES tl_ingredient(ingredientId)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
-) engine = innoDB;
-
-CREATE TABLE tl_recipecategory (
-	recipeId INT,
-    categoryId INT,
-    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status TINYINT(1) DEFAULT 1,
-    PRIMARY KEY(recipeId,categoryId),
-    CONSTRAINT tl_recipecategoryfk_1
-		FOREIGN KEY (recipeId)
-        REFERENCES tl_recipe(recipeId)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-	CONSTRAINT tl_recipecategoryfk_2
-		FOREIGN KEY (categoryId)
-        REFERENCES tl_category(categoryId)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 ) engine = innoDB;

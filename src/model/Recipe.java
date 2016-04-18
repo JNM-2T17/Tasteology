@@ -4,20 +4,20 @@ import java.util.List;
 
 public class Recipe {
 	private String name;
+	private String category;
 	private List<Ingredient> ingredients;
-	private List<String> categories;
 	private List<String> tags;
 	
 	public Recipe() {
 		super();
 	}
 
-	public Recipe(String name, List<Ingredient> ingredients,
-			List<String> categories, List<String> tags) {
+	public Recipe(String name, String category, List<Ingredient> ingredients,
+			List<String> tags) {
 		super();
 		this.name = name;
+		this.category = category;
 		this.ingredients = ingredients;
-		this.categories = categories;
 		this.tags = tags;
 	}
 
@@ -29,20 +29,20 @@ public class Recipe {
 		this.name = name;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
 
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
-	}
-
-	public List<String> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<String> categories) {
-		this.categories = categories;
 	}
 
 	public List<String> getTags() {
