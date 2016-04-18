@@ -7,6 +7,7 @@
 	<head>
 		<title>Tasteology</title>
 		<link rel="stylesheet" href="<c:url value="/resources/assets/css/style.css" />" />
+		<link rel="shortcut icon" href="<c:url value="/resources/assets/img/tasteologyicon.png" />" />
 		<script src="<c:url value="resources/assets/js/jquery.min.js" />"></script>
 		<script src="<c:url value="resources/assets/js/jquery-migrate-1.2.1.min.js"/>"></script>
 	</head>
