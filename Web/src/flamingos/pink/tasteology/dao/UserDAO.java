@@ -24,7 +24,7 @@ public class UserDAO {
 			ps.setString(3,fName);
 			ps.setString(4,lName);
 	
-			ps.executeQuery();
+			ps.execute();
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

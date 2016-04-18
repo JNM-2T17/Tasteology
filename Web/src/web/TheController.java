@@ -33,6 +33,27 @@ public class TheController {
 		}
 	}
 	
+	@RequestMapping("/addRecipe")
+	@ResponseBody
+	public void addRecipe(@RequestParam(value="name") String name
+							, @RequestParam(value="category") String category
+							, @RequestParam(value="ingredients") String ingredients
+							, @RequestParam(value="quantities") String quantities
+							, @RequestParam(value="units") String units
+							, @RequestParam(value="tags") String tags
+							, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		boolean result;
+		try {
+			result = RecipeDAO.addRecipe(name, category, ingredients, quantities, units, tags);
+			request.setAttribute("status",result);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			request.setAttribute("status",e.getMessage());
+		}
+		request.getRequestDispatcher("WEB-INF/view/addRecipe.jsp").forward(request,response);
+	}
+	
 	@RequestMapping("/search")
 	public void search( @RequestParam(value="param") String param
 						,@RequestParam(value="searchStr") String searchStr
