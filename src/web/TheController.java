@@ -24,17 +24,18 @@ import dao.DBManager;
 public class TheController {
 	@RequestMapping("/")
 	public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Hello");
 		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
 	}
 	
-	@RequestMapping("/Query")
-	@ResponseBody
-	public void query(	@RequestParam(value="table") String table,
-						@RequestParam(value="groupBy") String groupByStr,
-						@RequestParam(value="whereCols") String whereColsStr,
-						@RequestParam(value="whereRange") String whereRangeStr,
-						@RequestParam(value="whereVals") String whereValsStr,
-			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
+//	@RequestMapping("/Query")
+//	@ResponseBody
+//	public void query(	@RequestParam(value="table") String table,
+//						@RequestParam(value="groupBy") String groupByStr,
+//						@RequestParam(value="whereCols") String whereColsStr,
+//						@RequestParam(value="whereRange") String whereRangeStr,
+//						@RequestParam(value="whereVals") String whereValsStr,
+//			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		
+//	}
 }

@@ -10,11 +10,6 @@ public class DBManager {
 	private String username;
 	private String password;
 	private static DBManager instance = null;
-	/*
-	  	DBManager test = new DBManager("com.mysql.jdbc.DriverManager"
-									,"jdbc:mysql://127.0.0.1:3306/"
-									,"db_hpq","root","fuckmedikotopassword");
-	*/
 	
 	private DBManager(String driverName,String url,String dbName
 						,String username,String password) {
@@ -47,7 +42,7 @@ public class DBManager {
 			}
 			instance = new DBManager("com.mysql.jdbc.DriverManager"
 					,"jdbc:mysql://127.0.0.1:3306/"
-					,"db_mco2","root","B@l3r10n7476");
+					,"db_mco2","root","");
 			return instance;
 		}
 	}

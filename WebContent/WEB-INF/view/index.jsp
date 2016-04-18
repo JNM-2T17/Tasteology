@@ -11,6 +11,7 @@
 		<script src="<c:url value="resources/assets/js/jquery-migrate-1.2.1.min.js"/>"></script>
 	</head>
 	<body>
-		
+		Sup Bitches?
+		What the fuck?
 	</body>
 </html>
