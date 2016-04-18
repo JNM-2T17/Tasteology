@@ -77,7 +77,7 @@ public class UserDAO {
 	public static boolean verifyId(String id) {
 		Connection c = DBManager.getInstance().getConnection();
 		
-		String sql = "SELECT userId FROM tl_user WHERE md5('pink',userId,'flamingo') = ?";
+		String sql = "SELECT userId FROM tl_user WHERE md5('pink',userId,'flamingos') = ?";
 		try {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, id);
