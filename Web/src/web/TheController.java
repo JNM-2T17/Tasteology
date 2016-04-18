@@ -144,6 +144,7 @@ public class TheController {
 			e.printStackTrace();
 			reply = "noUser";
 		}
+		System.out.println(reply);
 		response.getWriter().print(reply);
 	}
 	
@@ -153,8 +154,10 @@ public class TheController {
 			,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if( UserDAO.verifyId(id)) {
 			request.getSession().setAttribute("userId", id);
+			response.getWriter().print(id);
+		} else {
+			response.getWriter().print("");
 		}
-		response.getWriter().print(id);
 	}
 	
 //	@RequestMapping("/Query")

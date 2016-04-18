@@ -1,12 +1,13 @@
 package flamingos.pink.tasteology;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+    public static String url = "192.168.1.135";
 
     ImageView popularIV, cuisineIV, categoriesIV, recommendedIV;
     ImageView homeIV, searchIV, accountIV;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         popularIV = (ImageView) findViewById(R.id.iv_popular);
         cuisineIV = (ImageView) findViewById(R.id.iv_cuisine);
         categoriesIV = (ImageView) findViewById(R.id.iv_categories);
