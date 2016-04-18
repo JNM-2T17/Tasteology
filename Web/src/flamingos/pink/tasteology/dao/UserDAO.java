@@ -43,6 +43,7 @@ public class UserDAO {
 			ResultSet rs = ps.executeQuery();
 			if( rs.next() ) {
 				String pass = rs.getString("password");
+				System.out.println(password + " " + pass);
 				return BCrypt.checkpw(password,pass);
 			} else {
 				throw new Exception("No such account");

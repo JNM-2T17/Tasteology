@@ -27,10 +27,21 @@ public class TheController {
 	@RequestMapping("/")
 	public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if( request.getSession().getAttribute("userId") == null ) {
-			request.getRequestDispatcher("WEB-INF/view/register.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
 		}
+	}
+	
+	@RequestMapping("/logout")
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().setAttribute("userId",null);
+		request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
+	}
+	
+	@RequestMapping("/registerUser")
+	public void registerUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("WEB-INF/view/register.jsp").forward(request, response);
 	}
 	
 	@RequestMapping("/addRecipe")
@@ -98,15 +109,23 @@ public class TheController {
 			,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			boolean result = UserDAO.checkPass(username, password);
-			request.setAttribute("loginStatus",result ? "success" : "wrongPass");
 			if( result ) {
 				request.getSession().setAttribute("userId", UserDAO.getId(username));
+				request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
+			} else {
+				request.setAttribute("loginStatus","wrongPass");
+				request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			request.setAttribute("loginStatus","noUser");
+			request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
+	}
+	
+	@RequestMapping("/loginUser")
+	public void loginUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
 	}
 	
 	@RequestMapping("/loginMobile")

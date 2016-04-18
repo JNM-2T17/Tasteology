@@ -31,6 +31,14 @@
     <h1>Tasteology Admin Login</h1>
     <br>
 </div>
+<c:if test="${not empty loginStatus }">
+	<c:if test="${loginStatus == 'noUser' }">
+		No such user.
+	</c:if>
+	<c:if test="${loginStatus == 'wrongPass' }">
+		Wrong Password
+	</c:if>
+</c:if>
 
 <!-- <div class = "logIn">
     <form class="form-inline">
@@ -43,36 +51,33 @@
     </div>
     
 </div> -->
+<form action="login" method="POST">
 <div class = "logIn">
     <div class="row">
         <div class="col-md-4"></div>
         <div class="input-group col-md-4">
-            <span class="input-group-addon" id="basic-addon1">First Name: </span>
-            <input type="text" class="form-control" id = "first_name" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">Username: </span>
+            <input name="username" type="text" class="form-control" id = "first_name" aria-describedby="basic-addon1">
         </div>
-    <div class="col-md-4"></div>
-    <br>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="input-group col-md-4">
-            <span class="input-group-addon" id="basic-addon1">Last Name: </span>
-            <input type="text" class="form-control" id = "last_name" aria-describedby="basic-addon1">
-        </div>
+    </div>
     <div class="col-md-4"></div>
     <br>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="input-group col-md-4">
             <span class="input-group-addon" id="basic-addon1">Password: </span>
-            <input type="password" class="form-control" id = "pass" aria-describedby="basic-addon1">
+            <input name="password" type="password" class="form-control" id = "pass" aria-describedby="basic-addon1">
         </div>
+    </div>
         <br>
         <div class="col-md-4"></div>
         <div class="col-md-6">
-            <a href = "RGhomepage.html" id = "login" class="btn btn-1 btn-1a" onClick = "return check();">LOG IN</a>
+            <input type="submit" id = "login" class="btn btn-1 btn-1a" value="LOG IN"/>
         </div>
 
     <div class="col-md-4"></div>
+</div>
+</form>
     <br>
     <br>
     <br>
@@ -85,7 +90,7 @@
     <br>
 
     <div class = "signUp">
-        <h5>Not yet registered? <a href="SignUp.html"><u>Sign Up</u></a></h5>
+        <h5>Not yet registered? <a href="registerUser"><u>Sign Up</u></a></h5>
 
     </div>
     

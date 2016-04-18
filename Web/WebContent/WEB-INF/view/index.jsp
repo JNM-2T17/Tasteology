@@ -17,6 +17,7 @@
 	</head>
 	<body>
 		<div id="mainContent">
+			<a href="logout">Logout</a>
 			<h1><b>Tasteology Administrator Page</b></h1>
 			<h2>Add New Recipe</h2>
 			<form action="addRecipe" method="POST" id="edit-contact-form" onsubmit="return checkSource('contact');">

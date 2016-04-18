@@ -44,6 +44,7 @@
     </div>
     
 </div> -->
+<a href="loginUser">Log In</a>
 <form action="register" method="POST">
 <div class = "logIn">
 	<div class="row">
