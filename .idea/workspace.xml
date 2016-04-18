@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1732903a-f4b9-451e-be7d-cd3b5d340b56" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\DLSU\Term 8\MOBAPDE\Requirements\Tasteology\WebContent\WEB-INF\web.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/DBManager.java" afterPath="$PROJECT_DIR$/src/dao/DBManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/web/TheController.java" afterPath="$PROJECT_DIR$/src/web/TheController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/index.jsp" />
