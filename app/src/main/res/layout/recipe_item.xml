@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+            <ImageView
+                android:id="@+id/recipe_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/tasteologyicon"
+                />
+            <TextView
+                android:id="@+id/recipe_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/recipe_photo"
+                android:layout_alignParentTop="true"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="test"/>
+            <TextView
+                android:id="@+id/recipe_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:layout_toRightOf="@+id/recipe_photo"
+                android:layout_below="@+id/recipe_category"
+                android:textSize="25sp"
+                android:text="title"/>
+        <TextView
+            android:id="@+id/recipe_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_toRightOf="@+id/recipe_photo"
+            android:layout_below="@+id/recipe_title"
+            android:textSize="20sp"
+            android:text="1,000 likes"></TextView>
+        </RelativeLayout>
+</LinearLayout>

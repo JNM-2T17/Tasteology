@@ -1,95 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="flamingos.pink.tasteology.MainActivity"
-    android:background="@color/colorPrimary">
+    android:fitsSystemWindows="true"
+    tools:context="flamingos.pink.tasteology.SearchActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/header_container"
-        android:layout_marginBottom="20dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:id="@+id/bar_layout">
 
-        <LinearLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:background="#000000"
+            android:id="@+id/bar_layout">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/rotated_logo" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <LinearLayout
+        </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/search_type_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bar_layout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="3dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WELCOME TO"
-                    android:textSize="30dp"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TASTEOLOGY"
-                    android:textSize="30dp"
-                    android:gravity="center"/>
-            </LinearLayout>
+                android:text="Search type: "
+                android:textSize="15dp"
+                android:padding="10dp"/>
+            <Spinner
+                android:id="@+id/search_type"
+                android:layout_width="150dp"
+                android:layout_height="50dp">
 
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/rotated_logo" />
+            </Spinner>
         </LinearLayout>
+
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/search_key_container"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header_container"
-        android:gravity="center">
+        android:layout_below="@+id/bar_layout"
+        android:layout_toRightOf="@+id/search_type_container">
 
-        <ImageView
-            android:id="@+id/iv_popular"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/popular"
-            />
-        <ImageView
-            android:id="@+id/iv_cuisine"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/cuisines"
-            android:layout_toRightOf="@+id/iv_popular"
-            />
-        <ImageView
-            android:id="@+id/iv_categories"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/categories"
-            android:layout_below="@+id/iv_popular"
-            />
-        <ImageView
-            android:id="@+id/iv_recommended"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/recommended"
-            android:layout_below="@+id/iv_cuisine"
-            android:layout_toRightOf="@id/iv_categories"
-            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search keyword/s: "
+                android:textSize="15dp"
+                android:padding="10dp"/>
+            <EditText
+                android:id="@+id/et_search_key"
+                android:hint="Search"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@id/search_key_container"
+        android:layout_below="@id/bar_layout"
+        android:gravity="center_vertical"
+        android:background="@drawable/search_icon"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_recipe"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_type_container"
+        android:layout_above="@+id/navigation"
+        />
+
+
     <RelativeLayout
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

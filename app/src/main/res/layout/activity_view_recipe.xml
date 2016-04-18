@@ -1,95 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="flamingos.pink.tasteology.MainActivity"
-    android:background="@color/colorPrimary">
+    android:fitsSystemWindows="true"
+    tools:context="flamingos.pink.tasteology.ViewRecipeActivity">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/header_container"
-        android:layout_marginBottom="20dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/rotated_logo" />
+    </android.support.design.widget.AppBarLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="3dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WELCOME TO"
-                    android:textSize="30dp"
-                    android:gravity="center"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TASTEOLOGY"
-                    android:textSize="30dp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/rotated_logo" />
-        </LinearLayout>
-    </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/title_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header_container"
+        android:layout_below="@+id/bar_layout"
+        android:layout_marginBottom="10dp"
         android:gravity="center">
+        <ImageView
+            android:id="@+id/recipe_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/tasteologyicon"
+            />
+        <TextView
+            android:id="@+id/recipe_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/recipe_photo"
+            android:layout_alignParentTop="true"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="test"/>
+        <TextView
+            android:id="@+id/recipe_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_toRightOf="@+id/recipe_photo"
+            android:layout_below="@+id/recipe_category"
+            android:textSize="25sp"
+            android:text="title"/>
+        <TextView
+            android:id="@+id/recipe_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_toRightOf="@+id/recipe_photo"
+            android:layout_below="@+id/recipe_title"
+            android:textSize="20sp"
+            android:text="1,000 likes"></TextView>
 
         <ImageView
-            android:id="@+id/iv_popular"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/popular"
-            />
-        <ImageView
-            android:id="@+id/iv_cuisine"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/cuisines"
-            android:layout_toRightOf="@+id/iv_popular"
-            />
-        <ImageView
-            android:id="@+id/iv_categories"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/categories"
-            android:layout_below="@+id/iv_popular"
-            />
-        <ImageView
-            android:id="@+id/iv_recommended"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/recommended"
-            android:layout_below="@+id/iv_cuisine"
-            android:layout_toRightOf="@id/iv_categories"
+            android:id="@+id/like"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/tasteologyicon"
+            android:layout_toRightOf="@id/recipe_likes"
+            android:layout_alignParentRight="true"
             />
     </RelativeLayout>
 
+        <TextView
+            android:id="@+id/tv_Ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_container"
+            android:text="Ingredients: "
+            android:textColor="@color/colorAccent"
+            android:textSize="30dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_ingredient"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_Ingredients"
+        android:layout_above="@+id/navigation"
+        />
     <RelativeLayout
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -107,7 +113,6 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <ImageView
-                    android:id="@+id/iv_home"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
                     android:scaleType="fitXY"
@@ -128,7 +133,6 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <ImageView
-                    android:id="@+id/iv_search"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
                     android:scaleType="fitXY"
@@ -149,7 +153,6 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <ImageView
-                    android:id="@+id/iv_account"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
                     android:scaleType="fitXY"
@@ -167,3 +170,5 @@
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
+
+

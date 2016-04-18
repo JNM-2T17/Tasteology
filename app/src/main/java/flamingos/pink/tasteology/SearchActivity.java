@@ -1,50 +1,48 @@
 package flamingos.pink.tasteology;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
-public class MainActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
 
-    ImageView popularIV, cuisineIV, categoriesIV, recommendedIV;
+    Spinner searchType;
+    EditText searchKey;
+    Button btnSearch;
+    RecyclerView rvRecipes;
+
     ImageView homeIV, searchIV, accountIV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        popularIV = (ImageView) findViewById(R.id.iv_popular);
-        cuisineIV = (ImageView) findViewById(R.id.iv_cuisine);
-        categoriesIV = (ImageView) findViewById(R.id.iv_categories);
-        recommendedIV = (ImageView) findViewById(R.id.iv_recommended);
+        setContentView(R.layout.activity_search);
 
         homeIV = (ImageView) findViewById(R.id.iv_home);
         searchIV = (ImageView) findViewById(R.id.iv_search);
         accountIV = (ImageView) findViewById(R.id.iv_account);
 
-        popularIV.setOnClickListener(new View.OnClickListener() {
+        searchType = (Spinner) findViewById(R.id.search_type);
+        searchKey = (EditText) findViewById(R.id.et_search_key);
+        btnSearch = (Button) findViewById(R.id.button_search);
+        rvRecipes = (RecyclerView) findViewById(R.id.recycler_recipe);
+
+        //TODO : preset the choices for the spinner
+        //TODO : adapter for recycle view
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO : get all popular recipes and show display on search activity
-            }
-        });
-        cuisineIV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO : get all cuisine recipes and show display on search activity
-            }
-        });
-        categoriesIV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO : get all categories and show display on search activity
-            }
-        });
-        recommendedIV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO : get all recommended recipes and show display on search activity
+                //TODO: update result based on search
             }
         });
 
@@ -70,5 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 //TODO : create intent to go to account activity
             }
         });
+
     }
+
 }
