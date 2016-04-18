@@ -1,4 +1,4 @@
-package dao;
+package flamingos.pink.tasteology.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Ingredient;
-import model.Recipe;
+import flamingos.pink.tasteology.model.Ingredient;
+import flamingos.pink.tasteology.model.Recipe;
 
 public class RecipeDAO {
 	public static List<Recipe> getRecipes(String param, String searchStr) {

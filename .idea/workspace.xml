@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1732903a-f4b9-451e-be7d-cd3b5d340b56" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\DLSU\Term 8\MOBAPDE\Requirements\Tasteology\WebContent\WEB-INF\web.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/dao/DBManager.class" afterPath="$PROJECT_DIR$/build/classes/dao/DBManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/DBManager.java" afterPath="$PROJECT_DIR$/src/dao/DBManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/web/TheController.java" afterPath="$PROJECT_DIR$/src/web/TheController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
     </list>
     <ignored path="Tasteology.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1858,7 +1855,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
+    <frame x="-7" y="0" width="1370" height="735" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

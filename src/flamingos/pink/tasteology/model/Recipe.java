@@ -1,4 +1,4 @@
-package model;
+package flamingos.pink.tasteology.model;
 
 import java.util.List;
 

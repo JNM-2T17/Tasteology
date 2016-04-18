@@ -1,4 +1,4 @@
-package model;
+package flamingos.pink.tasteology.model;
 
 public class Ingredient {
 	private String name;
