@@ -56,7 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_container"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/mainContent">
 
         <ImageView
             android:id="@+id/iv_popular"
@@ -88,11 +89,19 @@
             android:layout_toRightOf="@id/iv_categories"
             />
     </RelativeLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/mainContent"
+        android:id="@+id/logout"
+        android:text="LOG OUT"
+        android:textColor="@color/colorBlack"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@id/logout"
         android:background="@color/colorBlack">
 
         <LinearLayout
